@@ -1,0 +1,29 @@
+class ContactList:
+    def __init__(self):
+    def add_contact(self, name, phone_number):
+        contact = {"name": name, "phone": phone_number}
+        self.contacts.append(contact)
+        print(f"Contact '{name}' added successfully!")
+    def delete_contact(self, name):
+        for contact in self.contacts:
+            if contact['name'].lower() == name.lower():
+                self.contacts.remove(contact)
+                print(f"Contact '{name}' deleted successfully!")
+                return
+        print(f"Contact '{name}' not found!")
+    def display_contacts(self):
+        if not self.contacts:
+            print("No contacts found.")
+        else:
+            print("\n--- Contact List ---")
+            for idx, contact in enumerate(self.contacts, 1):
+                print(f"{idx}. Name: {contact['name']}, Phone: {contact['phone']}")
+            print("--------------------")
+if __name__ == "__main__":
+    contact_list = ContactList()
+    contact_list.add_contact("Alice", "1234567890")
+    contact_list.add_contact("Bob",)
+    contact_list.display_contacts()
+    contact_list.delete_contact("Alice")
+    contact_list.display_contacts()
+    contact_list.delete_contact("Charlie")
